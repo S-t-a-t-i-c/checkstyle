@@ -181,10 +181,19 @@ public class NoWhitespaceAfterCheckTest
     @Test
     public void testSynchronized() throws Exception {
         final String[] expected = {
-            "22:9: " + getCheckMessage(MSG_KEY, "synchronized"),
+                "22:9: " + getCheckMessage(MSG_KEY, "synchronized"),
         };
         verifyWithInlineConfigParser(
                 getPath("InputNoWhitespaceAfterTestSynchronized.java"), expected);
+    }
+    
+    @Test
+    public void testLiteralCatch() throws Exception {
+        final String[] expected = {
+            "15:11: " + getCheckMessage(MSG_KEY, "catch"),
+        };
+        verifyWithInlineConfigParser(
+                getPath("InputNoWhitespaceAfterCatch.java"), expected);
     }
 
     @Test
